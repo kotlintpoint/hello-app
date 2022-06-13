@@ -1,4 +1,5 @@
 import "./App.css";
+import LifecyclerContainer from "./components/day-four/LifecyclerContainer";
 import WelcomeClass from "./components/day-one/WelcomeClass";
 import WelcomeFunction from "./components/day-one/WelcomeFunction";
 import ClockClass from "./components/day-three/ClockClass";
@@ -11,11 +12,7 @@ import ObjectAsPropsInClass from "./components/day-two/ObjectAsPropsInClass";
 function App() {
   return (
     <div className="App">
-      <CountStateClass />
-      <hr />
-      <CountStateFunction />
-      <hr />
-      <ClockClass />
+      <LifecyclerContainer />
     </div>
   );
 }

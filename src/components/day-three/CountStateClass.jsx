@@ -29,11 +29,10 @@ export class CountStateClass extends Component {
             count : this.state.count + 1
         }) */
 
-        this.setState((prevState, props)=>{
-            return {
-                count : prevState.count + 1
-            }
+        this.setState((prevState, props)=>({
+            count : prevState.count + 1
         })
+        )
       }
   }
 
