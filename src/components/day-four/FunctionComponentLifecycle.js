@@ -9,7 +9,7 @@ function FunctionComponentLifecycle() {
     // component did mount
     console.log("Component Did mount Use Effect");
     return () => {
-      // this return function is equivalent to componentUnmount()
+      // this return function is equivalent to componentWillUnmount()
       console.log("Component Will unmount for function component");
     };
   }, []);

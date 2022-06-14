@@ -1,4 +1,7 @@
 import "./App.css";
+import FormEvent from "./components/day-five/FormEvent";
+import FruitInputEvent from "./components/day-five/FruitInputEvent";
+import InputMessageEvent from "./components/day-five/InputMessageEvent";
 import LifecyclerContainer from "./components/day-four/LifecyclerContainer";
 import WelcomeClass from "./components/day-one/WelcomeClass";
 import WelcomeFunction from "./components/day-one/WelcomeFunction";
@@ -12,7 +15,12 @@ import ObjectAsPropsInClass from "./components/day-two/ObjectAsPropsInClass";
 function App() {
   return (
     <div className="App">
-      <LifecyclerContainer />
+      <FormEvent />
+      <hr></hr>
+      <InputMessageEvent />
+      <hr></hr>
+      <FruitInputEvent />
+      {/* <LifecyclerContainer /> */}
     </div>
   );
 }
