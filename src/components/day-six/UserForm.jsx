@@ -77,11 +77,6 @@ function UserForm() {
         if(values.some(hasSomeError)){
             alert("Some Data Missing");
         }else{
-            /* let tempUser = user;
-            delete tempUser.error;
-            setUser({
-                user:tempUser
-            }) */
             setShow(true);
         }
     }
