@@ -1,8 +1,29 @@
 import React, {useState} from 'react'
 
-function UserForm() {
 
-    const [user, setUser] = useState({
+const UserRowItem = (props)=>{
+    // const userValue = props.userValue;
+    // const position = props.position;
+
+    const {userValue, position} = props;
+
+    return <tr>
+        <td>{userValue.firstName}</td>
+        <td>{userValue.lastName}</td>
+        <td>{userValue.email}</td>
+        <td>
+            <button>Edit</button>
+            {' '}
+            <button onClick={() => props.deleteUser(position)}>Delete</button>
+        </td>
+    </tr>
+}
+
+function UserTableForm() {
+
+    const [users, setUsers] = useState([]);
+
+    const initialUser = {
         firstName : "",
         lastName : "",
         email : "",
@@ -11,9 +32,10 @@ function UserForm() {
             lastName : "Required",
             email : "Required"
         }
-    })
+    }
+    const [user, setUser] = useState(initialUser)
 
-    const [show, setShow] = useState(false);
+    // const [show, setShow] = useState(false);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -47,7 +69,6 @@ function UserForm() {
                 break;
         }
 
-        setShow(false);
 
         setUser({
             ...user,
@@ -65,18 +86,6 @@ function UserForm() {
     }
 
     const handleSubmit=()=>{
-        // validation 1
-        
-        /*const values = Object.values(user);
-        if(values.every(hasSomeValue)){
-            setShow(true);
-        }else{
-            alert("Some Data Missing");
-        }*/
-
-        // validation 2
-
-       
         //console.log(keys);
         let error=false;
         const values = Object.values(user.error);
@@ -85,14 +94,29 @@ function UserForm() {
         }else{
             const data = {...user};
             delete data.error;
-            setUser(data);
-            setShow(true);
+            setUser(initialUser);
+            setUsers([
+                ...users,
+                data
+            ])
         }
     }
 
     const errorStyle={
         color:"red"
     }
+
+    const deleteUser=(position)=>{
+        // remove user from users using position
+        const tempUsers = [...users];
+        tempUsers.splice(position, 1);
+        setUsers(tempUsers);
+    }
+
+    const userRows = users.map((userValue, index) => {
+        return <UserRowItem key={index} position={index} userValue={userValue}
+        deleteUser={deleteUser} />
+    })
 
   return (
     <div>
@@ -117,9 +141,19 @@ function UserForm() {
                <br/>
         <button onClick={handleSubmit}>Submit</button>
         <hr/>
-        {show && <p>{JSON.stringify(user)}</p>}
+        <table>
+            <thead>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>#</th>
+            </thead>
+            {
+               userRows
+            }
+        </table>
     </div>
   )
 }
 
-export default UserForm
+export default UserTableForm
