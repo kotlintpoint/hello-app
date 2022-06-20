@@ -1,4 +1,5 @@
 import "./App.css";
+import ProductsData from "./components/day-eight/ProductsData";
 import FormEvent from "./components/day-five/FormEvent";
 import FruitInputEvent from "./components/day-five/FruitInputEvent";
 import InputMessageEvent from "./components/day-five/InputMessageEvent";
@@ -17,7 +18,7 @@ import ObjectAsPropsInClass from "./components/day-two/ObjectAsPropsInClass";
 function App() {
   return (
     <div className="App">
-      <UserTableForm />
+      <ProductsData />
     </div>
   );
 }
