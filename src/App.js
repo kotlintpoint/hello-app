@@ -4,6 +4,8 @@ import FormEvent from "./components/day-five/FormEvent";
 import FruitInputEvent from "./components/day-five/FruitInputEvent";
 import InputMessageEvent from "./components/day-five/InputMessageEvent";
 import LifecyclerContainer from "./components/day-four/LifecyclerContainer";
+import FragementExample from "./components/day-nine/FragementExample";
+import Greetings from "./components/day-nine/Greetings";
 import WelcomeClass from "./components/day-one/WelcomeClass";
 import WelcomeFunction from "./components/day-one/WelcomeFunction";
 import UserTableForm from "./components/day-seven/UserTableForm";
@@ -18,7 +20,10 @@ import ObjectAsPropsInClass from "./components/day-two/ObjectAsPropsInClass";
 function App() {
   return (
     <div className="App">
-      <ProductsData />
+      {/* <ProductsData /> */}
+      <FragementExample />
+      <hr />
+      <Greetings name={"Ankit"} age={25} />
     </div>
   );
 }

@@ -5,15 +5,7 @@ function ProductsData() {
   const [originalProducts, setOriginalProducts] = useState([]);
   const searchBoxRef = useRef(null);
 
-  useEffect(async () => {
-    // fetch("https://dummyjson.com/products")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setProducts(data.products);
-    //     setOriginalProducts(data.products);
-    //   })
-    //   .catch((error) => console.error(error));
-
+  const fetchProducts = async () => {
     try {
       const res = await fetch("https://dummyjson.com/products");
       const data = await res.json();
@@ -22,6 +14,18 @@ function ProductsData() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  useEffect(() => {
+    // fetch("https://dummyjson.com/products")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setProducts(data.products);
+    //     setOriginalProducts(data.products);
+    //   })
+    //   .catch((error) => console.error(error));
+
+    fetchProducts();
   }, []);
 
   useEffect(() => {
