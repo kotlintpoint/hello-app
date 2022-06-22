@@ -1,30 +1,39 @@
 import "./App.css";
-import ProductsData from "./components/day-eight/ProductsData";
-import FormEvent from "./components/day-five/FormEvent";
-import FruitInputEvent from "./components/day-five/FruitInputEvent";
-import InputMessageEvent from "./components/day-five/InputMessageEvent";
-import LifecyclerContainer from "./components/day-four/LifecyclerContainer";
-import FragementExample from "./components/day-nine/FragementExample";
-import Greetings from "./components/day-nine/Greetings";
-import WelcomeClass from "./components/day-one/WelcomeClass";
-import WelcomeFunction from "./components/day-one/WelcomeFunction";
-import UserTableForm from "./components/day-seven/UserTableForm";
-import UserForm from "./components/day-six/UserForm";
-import ClockClass from "./components/day-three/ClockClass";
-import CountStateClass from "./components/day-three/CountStateClass";
-import CountStateFunction from "./components/day-three/CountStateFunction";
-import ArrayAsPropsInClass from "./components/day-two/ArrayAsPropsInClass";
-import ObjectAsProps from "./components/day-two/ObjectAsProps";
-import ObjectAsPropsInClass from "./components/day-two/ObjectAsPropsInClass";
+import React, { useState } from "react";
+import ComponentA from "./components/day-ten/ComponentA";
+import ComponentA1 from "./components/day-ten/ComponentA1";
+import ComponentB from "./components/day-ten/ComponentB";
+import {
+  CountContext,
+  FruitContext,
+  MessageContext,
+} from "./helper/ContextProvider";
+
+const message = "Welcome To Context API";
+const fruits = ["Apple", "Banana", "Mango"];
 
 function App() {
+  const [count, setCount] = useState(10);
+
+  const changeCount = (value) => {
+    setCount(count + value);
+  };
+
+  const countValue = { count, changeCount };
   return (
-    <div className="App">
-      {/* <ProductsData /> */}
-      <FragementExample />
-      <hr />
-      <Greetings name={"Ankit"} age={25} />
-    </div>
+    <MessageContext.Provider value={message}>
+      <FruitContext.Provider value={fruits}>
+        <CountContext.Provider value={countValue}>
+          <div className="App">
+            <ComponentA>
+              <ComponentA1></ComponentA1>
+            </ComponentA>
+            <hr></hr>
+            <ComponentB />
+          </div>
+        </CountContext.Provider>
+      </FruitContext.Provider>
+    </MessageContext.Provider>
   );
 }
 
