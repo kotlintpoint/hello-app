@@ -1,4 +1,5 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import ComponentA from "./components/day-ten/ComponentA";
 import ComponentA1 from "./components/day-ten/ComponentA1";
@@ -8,6 +9,7 @@ import {
   FruitContext,
   MessageContext,
 } from "./helper/ContextProvider";
+import Welcome from "./components/day-eleven/Welcome";
 
 const message = "Welcome To Context API";
 const fruits = ["Apple", "Banana", "Mango"];
@@ -25,6 +27,8 @@ function App() {
       <FruitContext.Provider value={fruits}>
         <CountContext.Provider value={countValue}>
           <div className="App">
+            <Welcome />
+            <hr></hr>
             <ComponentA>
               <ComponentA1></ComponentA1>
             </ComponentA>
